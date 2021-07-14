@@ -1,0 +1,39 @@
+{% extends 'main/inc/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+{% for contact in contacts %}
+	<div class="pt-3">
+		<div>
+			<p class="font-weight-bold">
+				{{ contact.name }}
+			</p>
+		</div>
+		<div>
+			<p class="font-italic">
+				{{ contact.title }}
+			</p>
+		</div>
+		<div>
+			{{ contact.contact_for }}
+		</div>
+		<div>
+			{% if contact.email %}
+				{{ contact.email }}
+			{% endif %}
+			{% if contact.phone %}
+				- {{ contact.phone }}
+			{% endif %}
+
+		</div>
+
+	</div>
+{% endfor %}
+
+</div>
+
+
+{% endblock content %}

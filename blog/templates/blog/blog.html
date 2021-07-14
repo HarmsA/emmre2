@@ -1,0 +1,13 @@
+{% extends 'main/inc/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="content" style="padding: 10%">
+    <p style="margin-bottom: 0"> {{ article.author }}</p>
+    <p>{{ article.date_published }}</p>
+    <h1 style="text-align: center; padding-bottom: 30px">{{ article.title }}</h1>
+{#    <img src="{{ article.img }}" alt="">#}
+    <p>{{ article.content|safe }}</p>
+</div>    
+{% endblock %}

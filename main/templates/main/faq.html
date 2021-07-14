@@ -1,0 +1,40 @@
+{% extends 'main/inc/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+    <style>
+        .faq_heading{
+            width: 650px;
+            margin: auto;
+            text-align: center;
+        }
+         @media only screen and (max-width: 700px) {
+        .faq_heading{
+            width: auto;
+        }
+    }
+    </style>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+<div class="faq_heading">
+
+    <h2>The Top Communication and Productivity Platform for getting things done</h2>
+    <h5 style="padding: 5px 50px">Messages and Tasks seamlessly integrated means more focus, more transparency, and better priority.</h5>
+    <button>Talk to an Expert</button>
+</div>
+
+
+
+
+
+
+    {% include 'main/faq_page/sect_1.html' %}
+    {% include 'main/faq_page/sect_2.html' %}
+    {% include 'main/faq_page/sect_3.html' %}
+    {% include 'main/faq_page/sect_4.html' %}
+
+</div>
+
+{% endblock content %}

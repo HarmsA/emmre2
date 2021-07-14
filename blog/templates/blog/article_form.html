@@ -1,0 +1,71 @@
+{% extends 'main/inc/base.html' %}
+{% block head %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
+    <style>
+        tbody tr{
+            color: black;
+        }
+    </style>
+{% endblock head %}
+
+{% block title %}{{ title }}{% endblock %}
+{#{% load widget_tweaks %}#}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Article form</h1>
+<form action="" method="post">
+{% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            {{ form.author|as_crispy_field  }}
+        </div>
+        <div class="col-md-6">
+            {{ form.title|as_crispy_field  }}
+        </div>
+    </div>
+    <div>
+        {{ form.short_description|as_crispy_field  }}
+    </div>
+    <div>
+        {{ form.content|as_crispy_field  }}
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-4">
+            {{ form.tag|as_crispy_field  }}
+        </div>
+        <div class="col-md-4">
+            {{ form.category|as_crispy_field  }}
+        </div>
+        <div class="col-md-4">
+            {{ form.published_status|as_crispy_field  }}
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-4">
+            {{ form.visibility|as_crispy_field  }}
+        </div>
+        <div class="col-md-4">
+            <label for="id_date_published" class=" requiredField">
+                Date published<span class="asteriskField">*</span>
+            </label>
+            <input type="date" name="date_published" class="dateinput form-control" required="" id="id_date_published">
+        </div>
+        <div class="col-md-4">
+            {{ form.is_featured|as_crispy_field  }}
+        </div>
+    </div>
+
+{#        {{ form|crispy }}#}
+
+    <input type="submit" value="Submit">
+</form>
+
+</div>
+{% endblock %}
